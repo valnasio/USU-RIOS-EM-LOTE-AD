@@ -1,6 +1,6 @@
 ﻿# Configurações
 $csvFilePath = "C:\AD.csv"
-$ouPath = "OU=Alunos,DC=uneflabs,DC=corp"
+$ouPath = "OU=Alunos,DC=DOMAIN,DC=corp"
 $errorReportPath = "C:\erros_SCRIP_ALUNOS_AD.txt"
 
 # Inicializar lista de erros
@@ -19,7 +19,7 @@ foreach ($row in $csvData) {
         Name = $nome  # Usar o nome completo para o campo "Name"
         DisplayName = $nome
         SamAccountName = $login
-        UserPrincipalName = "$login@uneflabs.corp"
+        UserPrincipalName = "$login@DOMAIN.corp"
         AccountPassword = (ConvertTo-SecureString $senha -AsPlainText -Force)
         Enabled = $true
         Path = $ouPath  # Especificar a OU onde os usuários serão criados
